@@ -183,6 +183,31 @@ section h2 {
     border-color: rgba(57, 255, 20, 0.3);
 }
 
+.service.featured {
+    border-color: var(--green);
+    background: rgba(57, 255, 20, 0.05);
+    position: relative;
+}
+
+.service.featured:hover {
+    border-color: var(--green);
+    box-shadow: 0 8px 32px rgba(57, 255, 20, 0.2);
+}
+
+.service-badge {
+    position: absolute;
+    top: -12px;
+    left: 24px;
+    padding: 6px 12px;
+    background: var(--green);
+    color: var(--black);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 4px;
+}
+
 .service-icon {
     width: 56px;
     height: 56px;

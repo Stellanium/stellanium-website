@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Stellanium - AI-Powered Business Intelligence Platform. Unstoppable growth. Responsible AI. Sustainable future. Reach the top, bring everyone with us.">
+    <meta name="keywords" content="AI platform, business intelligence, logistics AI, responsible AI, sustainable tech, ethical automation">
+    <title>Stellanium - Reach the Top, Bring Everyone With Us</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Particle Canvas Background -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <svg class="logo-icon" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#39FF14;stop-opacity:1" />
+                            <stop offset="50%" style="stop-color:#00D9FF;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#FFD700;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M 25 5 L 45 15 L 45 35 L 25 45 L 5 35 L 5 15 Z"
+                          stroke="url(#logoGradient)"
+                          stroke-width="2"
+                          fill="none"/>
+                    <circle cx="25" cy="25" r="5" fill="url(#logoGradient)"/>
+                    <line x1="25" y1="25" x2="25" y2="10" stroke="url(#logoGradient)" stroke-width="2"/>
+                    <line x1="25" y1="25" x2="37" y2="19" stroke="url(#logoGradient)" stroke-width="2"/>
+                    <line x1="25" y1="25" x2="37" y2="31" stroke="url(#logoGradient)" stroke-width="2"/>
+                </svg>
+                <span class="logo-text">STELLANIUM</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#vision">Vision</a></li>
+                <li><a href="#platform">Platform</a></li>
+                <li><a href="#impact">Impact</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact" class="nav-cta">Get Started</a></li>
+            </ul>
+            <div class="mobile-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-grid"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-tag" data-aos="fade-down">
+                    <span class="tag-icon">🚀</span>
+                    <span>Unstoppable · Responsible · Sustainable</span>
+                </div>
+                <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">
+                    <span class="gradient-text">Reach the Top,</span><br>
+                    Bring Everyone With Us
+                </h1>
+                <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
+                    AI-powered business intelligence platform that dominates markets
+                    while elevating humanity. <span class="highlight">95%+ accuracy.</span>
+                    <span class="highlight">15-25% cost savings.</span>
+                    <span class="highlight">100% ethical.</span>
+                </p>
+                <div class="hero-cta" data-aos="fade-up" data-aos-delay="300">
+                    <a href="#contact" class="btn btn-primary">
+                        <span>Start Your Journey</span>
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="#vision" class="btn btn-secondary">
+                        <span>Our Vision</span>
+                    </a>
+                </div>
+
+                <!-- 10% Community Badge - Always Visible -->
+                <div class="community-badge" data-aos="fade-up" data-aos-delay="400">
+                    <div class="badge-icon">🛡️</div>
+                    <div class="badge-text">
+                        <div class="badge-title">10% to Community</div>
+                        <div class="badge-subtitle">Always. No exceptions.</div>
+                    </div>
+                </div>
+
+                <!-- Stats -->
+                <div class="hero-stats" data-aos="fade-up" data-aos-delay="500">
+                    <div class="stat">
+                        <div class="stat-number" data-count="49100">€0</div>
+                        <div class="stat-label">Proven Revenue</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number" data-count="95">0%</div>
+                        <div class="stat-label">AI Accuracy</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number" data-count="80">0%</div>
+                        <div class="stat-label">Job Placement</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Global Network Visualization -->
+            <div class="hero-visual" data-aos="fade-left" data-aos-delay="300">
+                <div class="globe-container">
+                    <div class="globe-ring ring-1"></div>
+                    <div class="globe-ring ring-2"></div>
+                    <div class="globe-ring ring-3"></div>
+                    <div class="globe-core">
+                        <div class="core-pulse"></div>
+                        <div class="core-text">AI</div>
+                    </div>
+                    <div class="network-nodes">
+                        <div class="node node-1"></div>
+                        <div class="node node-2"></div>
+                        <div class="node node-3"></div>
+                        <div class="node node-4"></div>
+                        <div class="node node-5"></div>
+                        <div class="node node-6"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section - 3 Dimensions -->
+    <section class="vision-section" id="vision">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Our DNA</span>
+                <h2>Three-Dimensional Vision</h2>
+                <p class="section-subtitle">
+                    Success isn't one-dimensional. We balance growth, responsibility, and sustainability.
+                </p>
+            </div>
+
+            <div class="vision-grid">
+                <!-- Dimension 1: Unstoppable -->
+                <div class="vision-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="vision-icon">
+                        <div class="icon-glow glow-green"></div>
+                        🚀
+                    </div>
+                    <h3>Unstoppable</h3>
+                    <p class="vision-subtitle">Market Domination</p>
+                    <ul class="vision-list">
+                        <li>€100k → €10M in 3 years</li>
+                        <li>€1B+ unicorn vision</li>
+                        <li>AI-native platform (not retrofitted)</li>
+                        <li>5x faster than competitors</li>
+                        <li>Global business OS</li>
+                    </ul>
+                    <div class="vision-quote">
+                        "Fastest, best, most advanced"
+                    </div>
+                </div>
+
+                <!-- Dimension 2: Responsible -->
+                <div class="vision-card featured" data-aos="fade-up" data-aos-delay="200">
+                    <div class="vision-badge">Our Heart</div>
+                    <div class="vision-icon">
+                        <div class="icon-glow glow-gold"></div>
+                        🛡️
+                    </div>
+                    <h3>Responsible</h3>
+                    <p class="vision-subtitle">Ethical AI Leadership</p>
+                    <ul class="vision-list">
+                        <li><strong>10% profit → community</strong> (always!)</li>
+                        <li>80%+ job placement guarantee</li>
+                        <li>AI Transition Program (retrain workers)</li>
+                        <li>Transparent automation impact</li>
+                        <li>Partner WITH humans, not against</li>
+                    </ul>
+                    <div class="vision-quote">
+                        "Elevate humans, don't replace them"
+                    </div>
+                </div>
+
+                <!-- Dimension 3: Sustainable -->
+                <div class="vision-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="vision-icon">
+                        <div class="icon-glow glow-blue"></div>
+                        🌱
+                    </div>
+                    <h3>Sustainable</h3>
+                    <p class="vision-subtitle">Built for Generations</p>
+                    <ul class="vision-list">
+                        <li>Profitable every year (no VC dependency)</li>
+                        <li>40h weeks (no burnout culture)</li>
+                        <li>90%+ employee retention</li>
+                        <li>80%+ client retention</li>
+                        <li>Net zero carbon footprint</li>
+                    </ul>
+                    <div class="vision-quote">
+                        "Building for 50+ years ahead"
+                    </div>
+                </div>
+            </div>
+
+            <!-- Decision Framework -->
+            <div class="decision-framework" data-aos="fade-up" data-aos-delay="400">
+                <h3>Our Decision Framework</h3>
+                <p>Every choice must score +3 (all three aligned) or we don't do it.</p>
+                <div class="framework-formula">
+                    <span class="formula-item">Growth?</span>
+                    <span class="formula-plus">+</span>
+                    <span class="formula-item">Responsible?</span>
+                    <span class="formula-plus">+</span>
+                    <span class="formula-item">Sustainable?</span>
+                    <span class="formula-equals">=</span>
+                    <span class="formula-result">+3 = Do It!</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform Section -->
+    <section class="platform-section" id="platform">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Technology</span>
+                <h2>AI-Native Business Intelligence</h2>
+                <p class="section-subtitle">
+                    From 55% cost visibility to 95%+ accuracy. Real-time intelligence. Automated optimization.
+                </p>
+            </div>
+
+            <div class="platform-showcase">
+                <!-- Dashboard Mockup -->
+                <div class="dashboard-mockup" data-aos="fade-right">
+                    <div class="mockup-window">
+                        <div class="window-header">
+                            <div class="window-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <div class="window-title">stellanium.ai/dashboard</div>
+                        </div>
+                        <div class="window-content">
+                            <div class="dashboard-grid">
+                                <div class="dash-card">
+                                    <div class="card-label">Revenue (Real-time)</div>
+                                    <div class="card-value">€49,100</div>
+                                    <div class="card-trend positive">+12.5%</div>
+                                </div>
+                                <div class="dash-card">
+                                    <div class="card-label">Cost Accuracy</div>
+                                    <div class="card-value">95.3%</div>
+                                    <div class="card-trend positive">+40.3%</div>
+                                </div>
+                                <div class="dash-card">
+                                    <div class="card-label">AI Optimization</div>
+                                    <div class="card-value">22.4%</div>
+                                    <div class="card-trend positive">Savings</div>
+                                </div>
+                            </div>
+                            <div class="chart-area">
+                                <canvas id="miniChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Features List -->
+                <div class="platform-features" data-aos="fade-left">
+                    <div class="feature-item">
+                        <div class="feature-icon">🔄</div>
+                        <div class="feature-content">
+                            <h4>Unified Intelligence</h4>
+                            <p>TMS + ERP + Accounting + GPS + WMS in one platform. Real-time data flow.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🤖</div>
+                        <div class="feature-content">
+                            <h4>GPT-4 Optimization</h4>
+                            <p>AI route planning, demand forecasting, anomaly detection. 15-25% cost savings.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">📊</div>
+                        <div class="feature-content">
+                            <h4>95%+ Accuracy</h4>
+                            <p>Know shipment profitability BEFORE delivery. From estimates to certainty.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">⚡</div>
+                        <div class="feature-content">
+                            <h4>Real-Time Intelligence</h4>
+                            <p>Live dashboards, instant alerts, automated reporting. No more weeks of delay.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="impact-section" id="impact">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Triple Bottom Line</span>
+                <h2>Measuring What Matters</h2>
+                <p class="section-subtitle">
+                    Financial + Social + Environmental. All three must be green for success.
+                </p>
+            </div>
+
+            <div class="impact-grid">
+                <!-- Financial Impact -->
+                <div class="impact-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="impact-header">
+                        <h3>💰 Financial</h3>
+                        <div class="impact-status status-green">Profitable</div>
+                    </div>
+                    <div class="impact-metrics">
+                        <div class="metric">
+                            <span class="metric-label">Revenue Growth</span>
+                            <span class="metric-value">100%+ YoY</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Net Margin</span>
+                            <span class="metric-value">20%+</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Proven Revenue</span>
+                            <span class="metric-value">€49,100</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Impact -->
+                <div class="impact-card featured" data-aos="fade-up" data-aos-delay="200">
+                    <div class="impact-header">
+                        <h3>❤️ Social</h3>
+                        <div class="impact-status status-green">Net Positive</div>
+                    </div>
+                    <div class="impact-metrics">
+                        <div class="metric">
+                            <span class="metric-label">Community Investment</span>
+                            <span class="metric-value">10% Profit</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Job Placement</span>
+                            <span class="metric-value">80%+</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Happiness Index</span>
+                            <span class="metric-value">8/10+</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Environmental Impact -->
+                <div class="impact-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="impact-header">
+                        <h3>🌍 Environmental</h3>
+                        <div class="impact-status status-green">Net Zero</div>
+                    </div>
+                    <div class="impact-metrics">
+                        <div class="metric">
+                            <span class="metric-label">Carbon Footprint</span>
+                            <span class="metric-value">100% Offset</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Burnout Rate</span>
+                            <span class="metric-value">&lt;5%</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Client Retention</span>
+                            <span class="metric-value">80%+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Manifesto -->
+            <div class="manifesto" data-aos="fade-up" data-aos-delay="400">
+                <h3>The Stellanium Way</h3>
+                <div class="manifesto-items">
+                    <div class="manifesto-item">
+                        <span class="item-number">01</span>
+                        <p>Business can be a force for <strong>good</strong></p>
+                    </div>
+                    <div class="manifesto-item">
+                        <span class="item-number">02</span>
+                        <p>AI should <strong>elevate</strong> humans, not replace them</p>
+                    </div>
+                    <div class="manifesto-item">
+                        <span class="item-number">03</span>
+                        <p><strong>Speed + Quality + Ethics</strong> can coexist</p>
+                    </div>
+                    <div class="manifesto-item">
+                        <span class="item-number">04</span>
+                        <p>Growth should be <strong>sustainable</strong></p>
+                    </div>
+                    <div class="manifesto-item">
+                        <span class="item-number">05</span>
+                        <p>We're building for <strong>generations</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text" data-aos="fade-right">
+                    <span class="section-tag">Our Story</span>
+                    <h2>Built by Operators, for Operators</h2>
+                    <p>
+                        Stellanium was founded by <strong>Andrus Salumäe</strong>, a logistics veteran with 10+ years
+                        at JetExpress OU. We experienced the pain firsthand: 55% cost visibility, weeks-delayed insights,
+                        manual everything.
+                    </p>
+                    <p>
+                        But we also saw the opportunity: AI could transform this industry. Not by replacing workers,
+                        but by <strong>elevating them</strong>. Not by cutting corners, but by <strong>doing it right</strong>.
+                    </p>
+                    <p>
+                        That's the Stellanium way: Unstoppable growth + Responsible practices + Sustainable future.
+                    </p>
+
+                    <div class="company-details">
+                        <div class="detail-item">
+                            <strong>Company:</strong> Stellanium Ltd
+                        </div>
+                        <div class="detail-item">
+                            <strong>Registration:</strong> UK #16191085
+                        </div>
+                        <div class="detail-item">
+                            <strong>Founded:</strong> January 2025
+                        </div>
+                        <div class="detail-item">
+                            <strong>Contact:</strong> admin@stellanium.io
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-visual" data-aos="fade-left">
+                    <div class="stats-card">
+                        <div class="stat-item">
+                            <div class="stat-icon">💼</div>
+                            <div class="stat-data">
+                                <div class="stat-value">10+ Years</div>
+                                <div class="stat-label">Industry Experience</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">🌍</div>
+                            <div class="stat-data">
+                                <div class="stat-value">Baltics</div>
+                                <div class="stat-label">Current Focus</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">🎯</div>
+                            <div class="stat-data">
+                                <div class="stat-value">Global</div>
+                                <div class="stat-label">Vision</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Get Started</span>
+                <h2>Join the Movement</h2>
+                <p class="section-subtitle">
+                    Ready to reach the top while bringing everyone with you?
+                </p>
+            </div>
+
+            <div class="contact-grid">
+                <form class="contact-form" data-aos="fade-right">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company</label>
+                        <input type="text" id="company" name="company" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <span>Send Message</span>
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none">
+                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </button>
+                </form>
+
+                <div class="contact-info" data-aos="fade-left">
+                    <div class="info-item">
+                        <h4>Email</h4>
+                        <a href="mailto:admin@stellanium.io">admin@stellanium.io</a>
+                    </div>
+                    <div class="info-item">
+                        <h4>Address</h4>
+                        <p>
+                            2nd Floor College House<br>
+                            17 King Edwards Road<br>
+                            Ruislip, London, HA4 7AE<br>
+                            United Kingdom
+                        </p>
+                    </div>
+                    <div class="info-item">
+                        <h4>Company</h4>
+                        <p>
+                            Stellanium Ltd<br>
+                            UK Registration #16191085
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <svg class="logo-icon" viewBox="0 0 50 50">
+                            <path d="M 25 5 L 45 15 L 45 35 L 25 45 L 5 35 L 5 15 Z" stroke="url(#logoGradient)" stroke-width="2" fill="none"/>
+                            <circle cx="25" cy="25" r="5" fill="url(#logoGradient)"/>
+                        </svg>
+                        <span class="logo-text">STELLANIUM</span>
+                    </div>
+                    <p>Reach the top, bring everyone with us.</p>
+                    <div class="footer-badge">
+                        🛡️ 10% to Community · Always
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Platform</h4>
+                        <a href="#platform">Technology</a>
+                        <a href="#impact">Impact</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Company</h4>
+                        <a href="#vision">Vision</a>
+                        <a href="#about">About</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Stellanium Ltd. All rights reserved. UK Company #16191085</p>
+                <p class="footer-motto">Unstoppable · Responsible · Sustainable</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/particles.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
