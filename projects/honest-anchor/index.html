@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3JRYK8DQB9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-3JRYK8DQB9');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Honest Anchor - git commit, but to the universe</title>
+    <meta name="description" content="Timestamp your code to Bitcoin. Permanent proof your files existed. Like git commit, but carved in stone forever.">
+    <meta name="keywords" content="bitcoin timestamp, code proof, prior art, opentimestamps, git, intellectual property">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Honest Anchor - git commit, but to the universe">
+    <meta property="og:description" content="Timestamp your code to Bitcoin. Permanent proof your files existed.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://stellanium.io/projects/honest-anchor/">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Honest Anchor - git commit, but to the universe">
+    <meta name="twitter:description" content="Timestamp your code to Bitcoin. Permanent proof your files existed.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --surface: #111111;
+            --border: #222222;
+            --text: #ffffff;
+            --text-muted: #888888;
+            --accent: #f7931a; /* Bitcoin orange */
+            --accent-dim: #f7931a33;
+            --green: #22c55e;
+            --red: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Nav */
+        nav {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--text-muted);
+            text-decoration: none;
+            letter-spacing: 0.1em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--accent-dim);
+            color: var(--accent);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 100px 0 80px;
+            text-align: center;
+        }
+
+        .hero .anchor-icon {
+            font-size: 64px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 6vw, 56px);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero .tagline {
+            font-size: 20px;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+        }
+
+        /* Terminal */
+        .terminal {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            max-width: 600px;
+            margin: 0 auto 48px;
+            text-align: left;
+            overflow: hidden;
+        }
+
+        .terminal-header {
+            background: var(--border);
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .terminal-header .dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .terminal-header .dots span {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #333;
+        }
+
+        .terminal-header .dots span:first-child { background: #ff5f57; }
+        .terminal-header .dots span:nth-child(2) { background: #ffbd2e; }
+        .terminal-header .dots span:last-child { background: #28ca42; }
+
+        .terminal-header .title {
+            flex: 1;
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .terminal-body {
+            padding: 24px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .terminal-body .comment {
+            color: var(--text-muted);
+        }
+
+        .terminal-body .command {
+            color: var(--green);
+        }
+
+        .terminal-body .command::before {
+            content: '$ ';
+            color: var(--accent);
+        }
+
+        .terminal-body .output {
+            color: var(--text-muted);
+            padding-left: 16px;
+        }
+
+        .terminal-body .success {
+            color: var(--green);
+        }
+
+        /* CTA Buttons */
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            background: #ffa940;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: var(--surface);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--border);
+            transform: translateY(-2px);
+        }
+
+        /* Philosophy */
+        .philosophy {
+            padding: 80px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .philosophy h2 {
+            font-size: 32px;
+            margin-bottom: 24px;
+        }
+
+        .philosophy-text {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            line-height: 2;
+            color: var(--text-muted);
+        }
+
+        .philosophy-text .highlight {
+            color: var(--text);
+        }
+
+        .comparison {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .comparison-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .comparison-row:not(:last-child) {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .comparison-cell {
+            padding: 20px 24px;
+        }
+
+        .comparison-cell:first-child {
+            border-right: 1px solid var(--border);
+        }
+
+        .comparison-header {
+            background: var(--border);
+        }
+
+        .comparison-header .comparison-cell {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .comparison-cell .label {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        .comparison-cell .value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+        }
+
+        .comparison-cell .value.bad {
+            color: var(--red);
+        }
+
+        .comparison-cell .value.good {
+            color: var(--green);
+        }
+
+        /* Features */
+        .features {
+            padding: 80px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 48px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px;
+        }
+
+        .feature-card .icon {
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+
+        .feature-card h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* Use Cases */
+        .usecases {
+            padding: 80px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .usecases h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 48px;
+        }
+
+        .usecase-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .usecase {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px;
+        }
+
+        .usecase h3 {
+            font-size: 16px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .usecase code {
+            display: block;
+            background: var(--bg);
+            padding: 16px;
+            border-radius: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: var(--green);
+            margin-bottom: 12px;
+        }
+
+        .usecase .note {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* Pricing */
+        .pricing {
+            padding: 80px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .pricing h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+
+        .pricing .subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 48px;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .price-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px 24px;
+            text-align: center;
+        }
+
+        .price-card.featured {
+            border-color: var(--accent);
+            position: relative;
+        }
+
+        .price-card.featured::before {
+            content: 'Popular';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: #000;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .price-card h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .price-card .price {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .price-card .price span {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+
+        .price-card .desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .price-card ul {
+            list-style: none;
+            text-align: left;
+            font-size: 13px;
+        }
+
+        .price-card li {
+            padding: 8px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .price-card li::before {
+            content: '';
+            margin-right: 8px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            color: var(--text-muted);
+            margin-bottom: 32px;
+        }
+
+        .install-command {
+            display: inline-block;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px 32px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 16px;
+            margin-bottom: 32px;
+        }
+
+        .install-command .prompt {
+            color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer .links {
+            display: flex;
+            gap: 24px;
+        }
+
+        footer a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        footer a:hover {
+            color: var(--text);
+        }
+
+        footer .brand {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .philosophy-grid,
+            .usecase-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid,
+            .pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .features-grid,
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            footer .container {
+                flex-direction: column;
+                gap: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Nav -->
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">STELLANIUM</a>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#usecases">Use Cases</a>
+                <a href="#pricing">Pricing</a>
+                <a href="https://github.com/Stellanium/honest-anchor" target="_blank">GitHub</a>
+                <span class="badge">v0.1.1</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="anchor-icon">&#9875;</div>
+            <h1>git commit, but to <span>the universe</span></h1>
+            <p class="tagline">Your code, carved in Bitcoin. Permanent. Public. Provable.</p>
+
+            <div class="terminal">
+                <div class="terminal-header">
+                    <div class="dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <span class="title">Terminal</span>
+                </div>
+                <div class="terminal-body">
+                    <div class="command">pip install honest-anchor</div>
+                    <br>
+                    <div class="command">anchor init</div>
+                    <div class="command">anchor commit my-algorithm.py</div>
+                    <br>
+                    <div class="output success">&#10003; Carved in Bitcoin. Proof ready in 1 hour.</div>
+                </div>
+            </div>
+
+            <div class="cta-buttons">
+                <a href="https://pypi.org/project/honest-anchor/" class="btn btn-primary" target="_blank">
+                    Install Now
+                </a>
+                <a href="https://github.com/Stellanium/honest-anchor" class="btn btn-secondary" target="_blank">
+                    View on GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy -->
+    <section class="philosophy">
+        <div class="container">
+            <div class="philosophy-grid">
+                <div>
+                    <h2>Why?</h2>
+                    <div class="philosophy-text">
+                        Paper burns.<br>
+                        Servers crash.<br>
+                        <span class="highlight">Git commits can be faked.</span><br>
+                        <br>
+                        Bitcoin doesn't burn.<br>
+                        Bitcoin doesn't crash.<br>
+                        <span class="highlight">Bitcoin can't be faked.</span><br>
+                        <br>
+                        Carve it. <span class="highlight">Forever.</span>
+                    </div>
+                </div>
+                <div class="comparison">
+                    <div class="comparison-row comparison-header">
+                        <div class="comparison-cell">Git</div>
+                        <div class="comparison-cell">Honest Anchor</div>
+                    </div>
+                    <div class="comparison-row">
+                        <div class="comparison-cell">
+                            <div class="label">Timestamp</div>
+                            <div class="value bad">Fakeable (--date)</div>
+                        </div>
+                        <div class="comparison-cell">
+                            <div class="label">Timestamp</div>
+                            <div class="value good">Immutable (Bitcoin)</div>
+                        </div>
+                    </div>
+                    <div class="comparison-row">
+                        <div class="comparison-cell">
+                            <div class="label">Storage</div>
+                            <div class="value bad">Your server</div>
+                        </div>
+                        <div class="comparison-cell">
+                            <div class="label">Storage</div>
+                            <div class="value good">100,000+ nodes</div>
+                        </div>
+                    </div>
+                    <div class="comparison-row">
+                        <div class="comparison-cell">
+                            <div class="label">Deletion</div>
+                            <div class="value bad">rm -rf .git</div>
+                        </div>
+                        <div class="comparison-cell">
+                            <div class="label">Deletion</div>
+                            <div class="value good">Impossible</div>
+                        </div>
+                    </div>
+                    <div class="comparison-row">
+                        <div class="comparison-cell">
+                            <div class="label">Trust</div>
+                            <div class="value bad">"Trust me"</div>
+                        </div>
+                        <div class="comparison-cell">
+                            <div class="label">Trust</div>
+                            <div class="value good">"Verify yourself"</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="icon">&#9875;</div>
+                    <h3>Bitcoin-Backed</h3>
+                    <p>Your proof is stored in the most secure ledger on Earth. 100,000+ nodes maintain your timestamp.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">&#128279;</div>
+                    <h3>Git Integration</h3>
+                    <p>Pre-commit hook makes every git commit automatically anchor to Bitcoin. Zero friction.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">&#128640;</div>
+                    <h3>Simple CLI</h3>
+                    <p>Feels like git. anchor init, anchor commit, anchor status. Learn in 30 seconds.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">&#128274;</div>
+                    <h3>SHA256 Proof</h3>
+                    <p>Cryptographic hash of your file. Anyone can verify, anytime, without trusting anyone.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">&#127760;</div>
+                    <h3>Open Standard</h3>
+                    <p>Built on OpenTimestamps. No vendor lock-in. Your proof works forever.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">&#127793;</div>
+                    <h3>Free Tier</h3>
+                    <p>10 files/month free. Because proof of existence should be accessible to everyone.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section id="usecases" class="usecases">
+        <div class="container">
+            <h2>Use Cases</h2>
+            <div class="usecase-grid">
+                <div class="usecase">
+                    <h3>&#128161; "I had this idea first"</h3>
+                    <code>anchor commit idea.md -m "My startup idea"</code>
+                    <p class="note">Prove it existed before anyone else claims it. Prior art protection.</p>
+                </div>
+                <div class="usecase">
+                    <h3>&#128187; "This code is mine"</h3>
+                    <code>anchor commit algorithm.py -m "Novel sorting algorithm"</code>
+                    <p class="note">Prior art proof if someone tries to patent your work.</p>
+                </div>
+                <div class="usecase">
+                    <h3>&#128221; "We agreed to this"</h3>
+                    <code>anchor commit contract.pdf -m "Agreement with Acme"</code>
+                    <p class="note">Proof the document existed in this exact form at this time.</p>
+                </div>
+                <div class="usecase">
+                    <h3>&#129302; "My AI created this"</h3>
+                    <code>anchor commit ai-output.py -m "Generated by Claude"</code>
+                    <p class="note">Timestamp AI-generated code with human verification.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2>Pricing</h2>
+            <p class="subtitle">Free forever for open source. Simple pricing for everyone else.</p>
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <h3>Free</h3>
+                    <div class="price">$0</div>
+                    <p class="desc">For personal projects</p>
+                    <ul>
+                        <li>10 files/month</li>
+                        <li>CLI access</li>
+                        <li>Bitcoin proofs</li>
+                        <li>Community support</li>
+                    </ul>
+                </div>
+                <div class="price-card featured">
+                    <h3>Pro</h3>
+                    <div class="price">$9<span>/mo</span></div>
+                    <p class="desc">For developers</p>
+                    <ul>
+                        <li>Unlimited files</li>
+                        <li>Priority anchoring</li>
+                        <li>API access</li>
+                        <li>Email support</li>
+                    </ul>
+                </div>
+                <div class="price-card">
+                    <h3>Team</h3>
+                    <div class="price">$29<span>/mo</span></div>
+                    <p class="desc">For small teams</p>
+                    <ul>
+                        <li>5 users</li>
+                        <li>Team dashboard</li>
+                        <li>Shared proofs</li>
+                        <li>Priority support</li>
+                    </ul>
+                </div>
+                <div class="price-card">
+                    <h3>Enterprise</h3>
+                    <div class="price">$99<span>/mo</span></div>
+                    <p class="desc">For organizations</p>
+                    <ul>
+                        <li>Unlimited users</li>
+                        <li>API + webhooks</li>
+                        <li>Legal exports</li>
+                        <li>Dedicated support</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Start anchoring in 30 seconds</h2>
+            <p>One command to install. One command to prove.</p>
+            <div class="install-command">
+                <span class="prompt">$</span> pip install honest-anchor
+            </div>
+            <div class="cta-buttons">
+                <a href="https://github.com/Stellanium/honest-anchor" class="btn btn-primary" target="_blank">
+                    Get Started
+                </a>
+                <a href="https://github.com/Stellanium/honest-anchor#readme" class="btn btn-secondary" target="_blank">
+                    Read Docs
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="links">
+                <a href="https://github.com/Stellanium/honest-anchor" target="_blank">GitHub</a>
+                <a href="https://pypi.org/project/honest-anchor/" target="_blank">PyPI</a>
+                <a href="mailto:admin@stellanium.io">Contact</a>
+            </div>
+            <div class="brand">
+                Made by <a href="https://stellanium.io">Stellanium</a> &mdash; Building honest tools for the AI age.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
